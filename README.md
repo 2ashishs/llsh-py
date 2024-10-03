@@ -12,22 +12,23 @@ Example:
 
 ### Features
 
--[ ] Generate response for command line syntax query
-	-[ ] Get enivronment variables from OS.
-	-[ ] Clean natural language query.
-	-[x] Pass natural language query to Ollama + Language Model.
-	-[x] Get response from Ollama + Language Model.
-	-[ ] Clean response.
-	-[ ] Return response to user to execute.
-	-[ ] Allow user to specify API server from environment variable.
-	-[ ] Allow user to specify model from environment variable or some other mechanism.
--[ ] Allow auto completion of command
--[ ] Allow parsing through arguments of a command
-	-[ ] Prefix a long complicated input command with our program and press return key.
-	-[ ] Our programs parses the command for arguments.
-	-[ ] Step wise allow the user to modify each argument.
-	-[ ] Auto generate other possible outcomes for each argument, using AI.
--[ ] More to come...
+- [ ] Generate response for command line syntax query
+ 	- [ ] Get enivronment variables from OS.
+        - [ ] Clean natural language query.
+ 	- [x] Pass natural language query to Ollama + Language Model.
+	- [x] Get response from Ollama + Language Model.
+	- [ ] Clean response.
+	- [ ] Return response to user to execute.
+	- [ ] Allow user to specify API server from environment variable.
+	- [ ] Allow user to specify model from environment variable or some other mechanism.
+- [ ] Allow auto completion of command
+- [ ] Allow parsing through arguments of a command
+	- [ ] Prefix a long complicated input command with our program and press return key.
+	- [ ] Our programs parses the command for arguments.
+	- [ ] Step wise allow the user to modify each argument.
+	- [ ] Auto generate other possible outcomes for each argument, using AI.
+- [ ] Add RAG & Internet Search.
+- [ ] More to come...
 
 ### Dependencies
 
