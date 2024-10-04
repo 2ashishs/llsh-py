@@ -5,37 +5,54 @@
 import requests
 import argparse
 
-debug = True
+import os
+from distro import name
 
-def get_response_from_api_for(prompt):
+# Variables
+debug = True
+env_shell = os.environ["SHELL"].split("/")[-1]
+env_os = name(pretty=True)
+
+
+def clean_output_text_in(response):
+    return response
+
+
+def get_response_for(prompt):
     url = "http://localhost:11434/api/generate"
     data = {
-        "model": "llama3.2:3b-instruct-q5_K_M",
+        # "model": "llama3.2:3b-instruct-q5_K_M",
+        "model": "gemma2:2b-instruct-q5_K_M",
         "prompt": prompt,
         "stream": False
     }
     response = requests.post(url, json=data)
     if debug:
         print(response.status_code)
-    response_data = response.json() # Assuming the response is in JSON format
+    response_data = response.json()
     return response_data["response"]
 
-def receive_text_prompt():
+
+def clean_input_text_in(prompt):
+    if debug:
+        print(
+            "In " + env_shell + " in " + env_os + ", what is the command to " + prompt + ". Just return the command without any description or any explanation.")
+    return "In " + env_shell + " in " + env_os + ", what is the command to " + prompt + ". Just return the command without any description or any explanation."
+
+
+def get_prompt_from_args():
     parser = argparse.ArgumentParser(description="Program accepts a single text argument")
     parser.add_argument('text', nargs='+', help="Text argument")
     args = parser.parse_args()
     return ' '.join(args.text)
 
+
 def main():
-    # Receive the text prompt from argument
-    prompt = receive_text_prompt()
-    if debug:
-        print("Linux shell command to " + prompt + ". Just return the command.")
-    # ToDo: Clean the prompt
-    # Send the prompt to API & receive response
-    response = get_response_from_api_for(prompt)
-    print(response)
-    # ToDo: Clean the response
+    prompt = get_prompt_from_args()
+    clean_prompt = clean_input_text_in(prompt)
+    response = get_response_for(clean_prompt)
+    clean_response = clean_output_text_in(response)
+    print(clean_response)
 
 
 if __name__ == "__main__":
