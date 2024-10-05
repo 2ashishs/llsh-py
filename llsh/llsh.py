@@ -7,15 +7,18 @@ import argparse
 
 import os
 from distro import name
+import re
 
 # Variables
-debug = True
+debug = False
 env_shell = os.environ["SHELL"].split("/")[-1]
 env_os = name(pretty=True)
 
 
 def clean_output_text_in(response):
-    return response
+    code_snippet = re.sub(r'```[\w]*\n([\s\S]*?)```', r'\1', response)
+    code_snippet = re.sub(r'^\s{4}', '', code_snippet, flags=re.MULTILINE)
+    return code_snippet.strip()
 
 
 def get_response_for(prompt):
