@@ -25,7 +25,8 @@ def get_response_for(prompt):
     url = "http://localhost:11434/api/generate"
     data = {
         # "model": "llama3.2:3b-instruct-q5_K_M",
-        "model": "gemma2:2b-instruct-q5_K_M",
+        # "model": "gemma2:2b-instruct-q5_K_M",
+        "model": "qwen2.5-coder:1.5b-instruct-q5_K_M",
         "prompt": prompt,
         "stream": False
     }
