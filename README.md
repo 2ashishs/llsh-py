@@ -8,7 +8,7 @@ A shell utility that allows you to generate shell command syntax for any scenari
 
 Example:
 
-`*llsh* list all files in current directory`
+`llsh list all files in current directory`
 
 ### Features
 
