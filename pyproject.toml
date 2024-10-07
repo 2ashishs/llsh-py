@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llsh"
-version = "2024.10.8"
+version = "2024.10.8a"
 requires-python = ">= 3.6"
 authors = [
     {name = "Ashish Sadhwani", email = "2ashishs@gmail.com"}
@@ -33,7 +33,7 @@ dependencies = [
 ]
 
 [project.scripts]
-random_leetcode = "llsh.llsh:main"
+llsh = "llsh.llsh:main"
 
 [project.urls]
 Homepage = "https://github.com/2ashishs/llsh-py"
