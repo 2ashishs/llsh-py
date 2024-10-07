@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-if ! command -v ollama &> /dev/null
+if ! command -v ollama > /dev/null
 then
     echo "'ollama' is not installed. Installing it now..."
     curl -fsSL https://ollama.com/install.sh | sh
