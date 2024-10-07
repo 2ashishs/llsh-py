@@ -4,6 +4,8 @@ if ! command -v ollama &> /dev/null
 then
     echo "'ollama' is not installed. Installing it now..."
     curl -fsSL https://ollama.com/install.sh | sh
+else
+  echo "'ollama' is installed."
 fi
 
 echo "Pulling the model 'qwen2.5-coder:1.5b-instruct-q5_K_M'..."
@@ -19,6 +21,8 @@ if ! grep -q "alias llx=" "$ZSHRC_FILE"; then
     echo "Adding alias 'llx' to $ZSHRC_FILE..."
     echo "$LLX_ALIAS" >> "$ZSHRC_FILE"
     echo "To use 'llx', run 'source ~/.zshrc' or restart your terminal."
+else
+  echo "'llx' is installed."
 fi
 
 echo "Installation complete!"
