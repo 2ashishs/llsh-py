@@ -14,9 +14,10 @@ ollama pull qwen2.5-coder:1.5b-instruct-q5_K_M
 echo "Installing 'llsh' from TestPyPI..."
 pip install -i https://test.pypi.org/simple/ llsh
 
-if [[ $SHELL == *zsh ]]; then
+CURR_SHELL=$(ps -p $$ -o comm=)
+if [[ $CURR_SHELL == zsh ]]; then
     SHELL_RC="$HOME/.zshrc"
-elif [[ $SHELL == *bash ]]; then
+elif [[ $CURR_SHELL == bash ]]; then
     SHELL_RC="$HOME/.bashrc"
 else
     echo "This script only works under Bash or Zsh :("
